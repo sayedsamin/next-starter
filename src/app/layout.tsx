@@ -1,11 +1,12 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Providers } from "./providers";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Starter Next.js + Tailwind CSS + TypeScript",
+  title: "Aromo Health",
   description: "A starter template for Next.js + Tailwind CSS + TypeScript",
 };
 

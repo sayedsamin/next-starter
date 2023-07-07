@@ -10,6 +10,7 @@ import doctorIcon from "../../public/images/homePage/doctor-icon.png";
 import bloodIcon from "../../public/images/homePage/blood-icon.png";
 import ambulanceIcon from "../../public/images/homePage/ambulance-icon.png";
 import hospitalIcon from "../../public/images/homePage/hospital-icon.png";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
 function HomeUpperCard() {
   return (
     <div className="bg-no-repeat bg-center bg-cover bg-[url('/images/homePage/hero-bg.webp')] ">
+      <Navbar />
       <div className="flex flex-col md:flex-row pt-24 lg:ml-[200px] items-center justify-between">
         <div className="text-center md:text-start">
           <h2 className=" text-2xl tracking-[10px]  text-[#FFFFFF]">
