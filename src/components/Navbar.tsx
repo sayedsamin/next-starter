@@ -1,85 +1,103 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+} from "@chakra-ui/react";
 
 const Navbar = () => {
-  const [toggleDropdown, setToggleDropdown] = useState(false);
-
   return (
-    <nav className="w-full ">
-      <div className="flex items-center justify-between h-16 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64">
-        <div className="flex items-center">
-          <div className="flex-shrink-0">
-            <img
-              className="h-8 w-8"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-              alt="Workflow"
-            />
-          </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <Link
-                href="/"
-                className="bg-slate-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Dashboard
-              </Link>
-              <Link
-                href="/hospital"
-                className="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Hospital
-              </Link>
-              <Link
-                href="/ambulance"
-                className="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Ambulance
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="-mr-2 flex md:hidden">
-          {/* <!-- Mobile menu button --> */}
-          <button
-            type="button"
-            className="bg-slate-500 inline-flex items-center justify-center p-2 rounded-md text-slate-200 hover:text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-500 focus:ring-white"
-            aria-controls="mobile-menu"
-            aria-expanded="false"
+    <div className="flex items-center justify-between pt-3 h-16 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64">
+      {/* <div className="flex flex-row items-center justify-between"> */}
+      <div className="flex-shrink-0">
+        <Image
+          src="/logo/Aromo Transparent Logo 01.svg"
+          alt="logo"
+          width={100}
+          height={100}
+        />
+      </div>
+      <div className="hidden md:block">
+        <div className="ml-10 flex items-baseline space-x-4">
+          <Link
+            href="/"
+            className={`${
+              window.location.pathname === "/"
+                ? "bg-slate-700 text-white"
+                : "text-slate-300 hover:bg-slate-700 hover:text-white"
+            }   px-3 py-2 rounded-md text-sm font-medium`}
           >
-            <span className="sr-only">Menu</span>
-            <FaBars className="h-6 w-6" />
-          </button>
+            Home
+          </Link>
+          <Link
+            href="/doctor"
+            className={`${
+              window.location.pathname === " /doctor"
+                ? "bg-slate-700 text-white"
+                : "text-slate-300 hover:bg-slate-700 hover:text-white"
+            }   px-3 py-2 rounded-md text-sm font-medium`}
+          >
+            Doctor
+          </Link>
 
-          {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-          <div className="hidden" id="mobile-menu">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link
-                href="/"
-                className="bg-slate-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-              >
-                Home
-              </Link>
-              <Link
-                href="/hospital"
-                className="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              >
-                Hospital
-              </Link>
-              <Link
-                href="/ambulance"
-                className="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-              >
-                Ambulance
-              </Link>
-            </div>
-          </div>
+          <Link
+            href="/hospital"
+            className={`${
+              window.location.pathname === "/hospital"
+                ? "bg-slate-700 text-white"
+                : "text-slate-300 hover:bg-slate-700 hover:text-white"
+            }   px-3 py-2 rounded-md text-sm font-medium`}
+          >
+            Hospital
+          </Link>
+          <Link
+            href="/ambulance"
+            className={`${
+              window.location.pathname === " /ambulance"
+                ? "bg-slate-700 text-white"
+                : "text-slate-300 hover:bg-slate-700 hover:text-white"
+            }   px-3 py-2 rounded-md text-sm font-medium`}
+          >
+            Ambulance
+          </Link>
         </div>
       </div>
-    </nav>
+      {/* </div> */}
+
+      <div className="-mr-2 flex md:hidden">
+        {/* <!-- Mobile menu button --> */}
+
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label="Options"
+            icon={<FaBars />}
+            variant="outline"
+          />
+          <MenuList>
+            <MenuItem>
+              <Link href="/">Home</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/doctor">Doctor</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/hospital">Hospital</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/ambulance">Ambulance</Link>
+            </MenuItem>
+          </MenuList>
+        </Menu>
+      </div>
+    </div>
   );
 };
 

@@ -14,7 +14,7 @@ export const SearchBar = () => {
         <Input placeholder="Search" className="bg-white" />
       </InputGroup>
 
-      <InputGroup w={"300px"} className="">
+      <InputGroup w={"300px"}>
         <Select placeholder="Select District" className="bg-white">
           <option selected value="option1">
             Chittagong

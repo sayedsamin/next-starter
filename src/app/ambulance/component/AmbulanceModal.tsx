@@ -39,26 +39,33 @@ function AmbulanceModal({ ambulance }: { ambulance: Ambulance }) {
         )}
       </div>
       <div className="flex flex-col ">
-        <h1 className="text-2xl font-bold text-center mt-2">{name}</h1>
+        <h1 className="text-2xl font-semibold text-center mt-6">{name}</h1>
 
         {/* Location  */}
-        <div className="flex flex-col border-2 rounded-lg mt-3">
-          <h2 className="p-2 text-gray-500">Location</h2>
-          <div className="flex flex-row px-2">
-            <div className="text-lg font-normal text-gray-700">{area}</div>
+        <div className="text-lg font-normal text-gray-500 text-center">
+          {area}
+        </div>
+
+        <div className="flex flex-col border-2 rounded-lg mt-3 p-4">
+          <h2 className=" text-gray-500">Ambulance Type</h2>
+          <div className="flex flex-row">
+            <div className="text-lg font-normal text-gray-700">{type}</div>
           </div>
         </div>
 
         {/* Phone Numbers */}
 
-        <div className="flex flex-col border-2 rounded-lg mt-3">
-          <h2 className="p-2 text-gray-500">Phone Number</h2>
-          {phone.map((p, index) => (
-            <div key={p} className="flex flex-row px-2">
+        {phone.map((p, index) => (
+          <div
+            key={p}
+            className="flex flex-col bg-[#EFF4F6] rounded-lg mt-3 p-4"
+          >
+            <h2 className=" text-gray-500">Phone Number</h2>
+            <div className="flex flex-row ">
               <div className="text-lg font-normal text-gray-700">{p}</div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

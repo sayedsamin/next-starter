@@ -1,16 +1,8 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
 import { Ambulance } from "@/types/ambulance";
 import {
-  Box,
   Button,
-  Flex,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -19,11 +11,10 @@ import {
   ModalHeader,
   ModalOverlay,
   useDisclosure,
-  useToast,
-  VStack,
 } from "@chakra-ui/react";
-import { GoDotFill } from "react-icons/go";
+import Image from "next/image";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { GoDotFill } from "react-icons/go";
 import AmbulanceModal from "./AmbulanceModal";
 
 function AmbulanceCard({ ambulance }: { ambulance: Ambulance }) {
@@ -78,7 +69,9 @@ function AmbulanceCard({ ambulance }: { ambulance: Ambulance }) {
         </div>
 
         <div className="flex flex-col basis-4/5 px-2">
-          <h1 className="text-2xl font-semibold font-sans">{ambulance.name}</h1>
+          <h1 className="text-2xl font-semibold font-sans ">
+            {ambulance.name}
+          </h1>
           <div className="flex flex-row text-sm font-normal text-gray-700 mt-1">
             <GoDotFill size="20" color="#2FC8BF" /> {ambulance.area}
           </div>
